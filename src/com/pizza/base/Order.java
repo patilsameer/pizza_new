@@ -1,3 +1,4 @@
+package com.pizza.base;
 
 public interface Order{
     Order verifyOrder();
