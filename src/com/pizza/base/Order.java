@@ -1,6 +1,5 @@
 package com.pizza.base;
 
-import java.lang.ref.Cleaner;
 
 public interface Order{
     void verifyOrder();
