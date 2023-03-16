@@ -1,6 +1,10 @@
 # Compiled class file
 *.class
 
+#folders to ignore
+lib
+bin
+
 # Log file
 *.log
 
