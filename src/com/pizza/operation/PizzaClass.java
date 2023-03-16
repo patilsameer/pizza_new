@@ -18,7 +18,7 @@ public class PizzaClass implements Pizza {
     }
 
     public String toString(){
-        return "name = "+name+ "size = " + pizzaSize +" price = " + price ;
+        return "name = "+pizzaName+ "size = " + pizzaSize +" price = " + price ;
     }
 
     @Override
