@@ -2,30 +2,34 @@ package com.pizza.operation;
 import com.pizza.base.*;;
 
 public class PizzaClass implements Pizza {
-    int size; // size 1 = small pizz 2 =medium pizza 3 =large pizza
+    int pizzasize; // size 1 = small pizz 2 =medium pizza 3 =large pizza
     public PizzaClass(){
-        size=1;
+        pizzasize=1;
     }
-    @Override
-    public int getInventory() {
-        return 1;
-    }
+    
 
     @Override
-    public Crust selectCrust() {
+    public String selectCrust() throws InventoryException {
         Crust c=new CrustType();
-        return c;
+        if(c.getAvailableInventory()>0)
+            return c.crustName();
+        throw new InventoryException();
     }
 
     @Override
-    public Toppings selectToppings() {
+    public Toppings selectToppings()throws InventoryException {
         Toppings myToppings=new MyToppings();
-        return myToppings;
+        if(myToppings.getAvailableInventory()>0)
+            return myToppings;
+        throw new InventoryException();
     }
 
     @Override
-    public int selectSize() {
-       return size;
+    public int getSize() {
+       return pizzasize;
+    }
+    public void setSize(int userSelectedSize){
+        pizzaSize = userSelectedSize;
     }
     
 }

@@ -1,5 +1,5 @@
 package com.pizza.base;
 
-public interface Toppings {
-    String getTopping();
+public interface Toppings extends InventoryItem{
+    String getToppingName();
 }

@@ -1,4 +1,4 @@
 package com.pizza.base;
-public interface Crust {
+public interface Crust extends InventoryItem{
     String crustName();
 }
