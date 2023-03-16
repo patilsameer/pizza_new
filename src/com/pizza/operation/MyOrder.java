@@ -8,8 +8,6 @@ import com.pizza.base.Sides;
 
 public class MyOrder implements Order {
     int totalAmount=0;
-    int sideIndex=0;
-    int pizzaIndex=0;
     ArrayList<Pizza> pizza;
     ArrayList<Sides> side;
     boolean isConfirmed;
@@ -36,31 +34,32 @@ public class MyOrder implements Order {
     @Override
     public boolean addPizza(Pizza p) {
         pizza.add(p);
-        totalAmount+=p.getPrice();
+        totalAmount+=p.getPizzaPrice();
         return true;
     }
 
     @Override
     public boolean addSide(Sides s) {
         side.add(s);
-        totalAmount+=s.getPrice();
+        totalAmount+=s.getSidePrice();
         return true;
     }
 
     @Override
     public boolean removeSide(Sides s) {
         side.remove(s);
-        totalAmount-=s.getPrice();
-       
+        totalAmount-=s.getSidePrice();
         return true;
     }
 
     @Override
-    public boolean removePizza(int index) {
-        totalAmount-=pizza[index].getPrice();
-        pizza[index]=null;
+    public boolean removePizza(Pizza p){
+        pizza.remove(p);
+        totalAmount-=p.getPizzaPrice();
         return true;
-        
     }
+   
+        
+    
     
 }

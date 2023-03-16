@@ -4,16 +4,28 @@ import com.pizza.base.*;;
 public class PizzaClass implements Pizza {
     int pizzaSize=1; // size 1 = small pizz 2 =medium pizza 3 =large pizza
     int price=1;
+    String pizzaName;
+    public void setPizzaName(String name){
+        this.pizzaName=name;
+    }
+
+    public String getPizzaName(){
+        return this.pizzaName;
+    }
+
     public PizzaClass(){
         pizzaSize=1;
     }
-    
+
+    public String toString(){
+        return "name = "+name+ "size = " + pizzaSize +" price = " + price ;
+    }
 
     @Override
     public String selectCrust() throws InventoryException {
         Crust c=new CrustType();
         if(c.getAvailableInventory()>0)
-            return c.crustName();
+            return c.getCrustName();
         throw new InventoryException();
     }
 
@@ -27,7 +39,7 @@ public class PizzaClass implements Pizza {
 
     @Override
     public int getSize() {
-       return pizzasize;
+       return pizzaSize;
     }
     public void setSize(int userSelectedSize){
         pizzaSize = userSelectedSize;
@@ -35,13 +47,13 @@ public class PizzaClass implements Pizza {
 
 
     @Override
-    public int getPrice() {
+    public int getPizzaPrice() {
         return price;
     }
 
 
     @Override
-    public void setPrice(int price) {
+    public void setPizzaPrice(int price) {
       this.price=price;
     }
     

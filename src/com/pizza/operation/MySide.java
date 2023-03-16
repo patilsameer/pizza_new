@@ -4,8 +4,11 @@ import com.pizza.base.Sides;
 
 public class MySide implements Sides {
 
-    int price=1;
+    int sidePrice=1;
     int availableInventory=1;
+    String sideName;
+
+    
     @Override
     public int getAvailableInventory()  {
         return availableInventory;
@@ -23,15 +26,21 @@ public class MySide implements Sides {
     }
     
     public String getSideName(){
-        return "MySide";
+        return sideName;
+    }
+
+    public void setSideName(String name){
+        this.sideName=name;
     }
 
     @Override
-    public int getPrice() {
-       return price;
+    public int getSidePrice() {
+       return sidePrice;
     }
 
-    public void setPrice(int price){
-        this.price=price;
+    public void setSidePrice(int price){
+        this.sidePrice=price;
     }
+
+    
 }

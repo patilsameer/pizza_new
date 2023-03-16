@@ -1,4 +1,5 @@
 package com.pizza.base;
 public interface Crust extends InventoryItem{
-    String crustName();
+    String getCrustName();
+    void setCrustName(String name);
 }

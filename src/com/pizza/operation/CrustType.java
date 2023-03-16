@@ -3,11 +3,13 @@ import com.pizza.base.Crust;
 public class CrustType implements Crust{
 
     public int availableInventory=1;
-    
+    public String crustName="default";
+
+   
 
     @Override
-    public String crustName() {
-     return "myCurstType";
+    public String getCrustName() {
+     return crustName;
     }
 
 
