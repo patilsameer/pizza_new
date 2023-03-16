@@ -4,17 +4,13 @@ import com.pizza.base.*;;
 public class PizzaClass implements Pizza {
     int pizzaSize=1; // size 1 = small pizz 2 =medium pizza 3 =large pizza
     int price=1;
-    String pizzaName;
+    String pizzaName=null;
     public void setPizzaName(String name){
         this.pizzaName=name;
     }
 
     public String getPizzaName(){
         return this.pizzaName;
-    }
-
-    public PizzaClass(){
-        pizzaSize=1;
     }
 
     public String toString(){
@@ -41,6 +37,7 @@ public class PizzaClass implements Pizza {
     public int getSize() {
        return pizzaSize;
     }
+    @Override
     public void setSize(int userSelectedSize){
         pizzaSize = userSelectedSize;
     }
