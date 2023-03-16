@@ -7,4 +7,6 @@ public interface Pizza{
     Toppings selectToppings()throws InventoryException;
     void setSize(int userSelectedSize);// 1=small  2=medium 3=large
     int getSize();//return size of pizza
+    int getPrice();
+    void setPrice(int price);
 }

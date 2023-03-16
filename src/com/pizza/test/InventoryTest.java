@@ -2,8 +2,10 @@ package com.pizza.test;
 import junit.framework.*;
 import org.junit.Test;
 
+import com.pizza.base.Sides;
 import com.pizza.base.Toppings;
 import com.pizza.operation.CrustType;
+import com.pizza.operation.MySide;
 import com.pizza.operation.MyToppings;
 
 import static org.junit.Assert.assertArrayEquals;
@@ -22,5 +24,10 @@ public class InventoryTest {
         Toppings t=new MyToppings();
             
         assertEquals(t.getAvailableInventory(), 1);
+    }
+
+    public void sidesTest(){
+        Sides s=new MySide();
+        assertEquals(s.getAvailableInventory(), 1);
     }
 }

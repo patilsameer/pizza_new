@@ -2,9 +2,10 @@ package com.pizza.operation;
 import com.pizza.base.*;;
 
 public class PizzaClass implements Pizza {
-    int pizzasize; // size 1 = small pizz 2 =medium pizza 3 =large pizza
+    int pizzaSize=1; // size 1 = small pizz 2 =medium pizza 3 =large pizza
+    int price=1;
     public PizzaClass(){
-        pizzasize=1;
+        pizzaSize=1;
     }
     
 
@@ -30,6 +31,18 @@ public class PizzaClass implements Pizza {
     }
     public void setSize(int userSelectedSize){
         pizzaSize = userSelectedSize;
+    }
+
+
+    @Override
+    public int getPrice() {
+        return price;
+    }
+
+
+    @Override
+    public void setPrice(int price) {
+      this.price=price;
     }
     
 }
