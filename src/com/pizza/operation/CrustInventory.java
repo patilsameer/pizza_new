@@ -6,7 +6,18 @@ public class CrustInventory {
     
     Crust crust;
     int count;
-    Crust getCrust(){
+    public Crust getCrust(){
         return crust;
+    }
+    public void setCrust(Crust c){
+        crust=c;
+    }
+
+    public int getCount()
+    {
+        return count;
+    }
+    public void setCount(int number){
+        count=number;
     }
 }
