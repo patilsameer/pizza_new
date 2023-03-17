@@ -31,8 +31,8 @@ public class PizzaClass implements Pizza {
    
 
     @Override
-    public Toppings selectToppings()throws InventoryException {
-         myToppings=new MyToppings();
+    public Toppings selectToppings(Toppings t)throws InventoryException {
+         myToppings=t;
         if(myToppings.getAvailableInventory()>0)
             return myToppings;
         throw new InventoryException();

@@ -6,7 +6,7 @@ public interface Pizza{
     void setCrust(Crust c)throws InventoryException;
     //void setCrustName(String name) throws InventoryException;
     String getCrustName() throws InventoryException;
-    Toppings selectToppings()throws InventoryException;
+    Toppings selectToppings(Toppings t)throws InventoryException;
     void setSize(int userSelectedSize);// 1=small  2=medium 3=large
     int getSize();//return size of pizza
     int getPizzaPrice();

@@ -6,3 +6,5 @@ The operation package - com.pizza.operation will be used for writing operational
 
 the test package contains the test cases.
 Run the test runner class to verify the test cases;
+
+##working on singleton design to maintain inventory. Check the Inventory.java file in operation package.

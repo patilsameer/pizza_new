@@ -3,10 +3,15 @@ import com.pizza.base.Toppings;;
 public class MyToppings implements Toppings{
 
     int availableInventory=1;
+    String toppingsName;
 
     @Override
+    public void setToppingsName(String name){
+        toppingsName=name;
+    }
+    @Override
     public String getToppingName() {
-        return "my topping name";
+        return toppingsName;
     }
 
     @Override
