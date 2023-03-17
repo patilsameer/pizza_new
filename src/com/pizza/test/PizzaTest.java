@@ -4,7 +4,9 @@ import org.junit.Test;
 import com.pizza.base.Sides;
 import com.pizza.base.Toppings;
 import com.pizza.operation.CrustType;
+import com.pizza.operation.InventoryException;
 import com.pizza.operation.MyToppings;
+import com.pizza.base.Crust;
 import com.pizza.base.Pizza;
 import com.pizza.operation.PizzaClass;
 
@@ -35,4 +37,14 @@ public class PizzaTest {
 
     }
 
+    @Test
+    public void crustName()throws InventoryException{
+        p=new PizzaClass();
+        Crust c=new CrustType();
+        c.setAvailableInventory(2);
+        c.setCrustName("New Crust");
+        p.setCrust(c);
+        assertEquals(p.getCrustName(),"New Crust");
+
+    }
 }

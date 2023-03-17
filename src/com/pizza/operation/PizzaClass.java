@@ -5,6 +5,8 @@ public class PizzaClass implements Pizza {
     int pizzaSize=1; // size 1 = small pizz 2 =medium pizza 3 =large pizza
     int price=1;
     String pizzaName=null;
+    Crust crustType;
+    Toppings myToppings;
     public void setPizzaName(String name){
         this.pizzaName=name;
     }
@@ -18,16 +20,19 @@ public class PizzaClass implements Pizza {
     }
 
     @Override
-    public String selectCrust() throws InventoryException {
-        Crust c=new CrustType();
-        if(c.getAvailableInventory()>0)
-            return c.getCrustName();
-        throw new InventoryException();
+    public void setCrust(Crust c){
+        crustType =c;
     }
+    @Override
+    public String getCrustName(){
+        return crustType.getCrustName();
+
+    }
+   
 
     @Override
     public Toppings selectToppings()throws InventoryException {
-        Toppings myToppings=new MyToppings();
+         myToppings=new MyToppings();
         if(myToppings.getAvailableInventory()>0)
             return myToppings;
         throw new InventoryException();
