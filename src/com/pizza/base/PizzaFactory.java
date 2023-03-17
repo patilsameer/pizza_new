@@ -7,6 +7,6 @@ public interface PizzaFactory{
      Sides createSides();
      Crust createCrust();
      Toppings createToppings();
-     Order createOrder(ArrayList<Pizza> p);
-     Order createOrder(ArrayList<Pizza> p,ArrayList<Sides> s);
+     Order editOrder(Order order,InventoryItem inventoryItem);
+     //Order createOrder(Pizza p,Side s);
     }
