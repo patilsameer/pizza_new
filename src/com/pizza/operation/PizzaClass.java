@@ -28,15 +28,10 @@ public class PizzaClass implements Pizza {
         return crustType.getCrustName();
 
     }
-   
-
-    @Override
-    public Toppings selectToppings(Toppings t)throws InventoryException {
-         myToppings=t;
-        if(myToppings.getAvailableInventory()>0)
-            return myToppings;
-        throw new InventoryException();
+    public Crust getCrust(){
+        return crustType;
     }
+   
 
     @Override
     public int getSize() {
@@ -58,5 +53,23 @@ public class PizzaClass implements Pizza {
     public void setPizzaPrice(int price) {
       this.price=price;
     }
+
+    @Override
+    public Toppings getToppings()  {
+        return myToppings;
+    }
+
+    @Override
+    public void setToppings(Toppings t) {
+        myToppings=t;
+        price+=t.getPrice();
+    }
+
+    @Override
+    public String getToppingName() {
+       return myToppings.getToppingName();
+    }
+    
+
     
 }

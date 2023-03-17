@@ -11,6 +11,7 @@ public class MyOrder implements Order {
     ArrayList<Pizza> pizza;
     ArrayList<Sides> side;
     boolean isConfirmed;
+    Inventory inventory;
     
     public MyOrder(){
     }
@@ -32,17 +33,25 @@ public class MyOrder implements Order {
     }
 
     @Override
-    public boolean addPizza(Pizza p) {
-        pizza.add(p);
-        totalAmount+=p.getPizzaPrice();
-        return true;
+    public boolean addPizza(Pizza p) throws InventoryException{
+        if(inventory.checkCrustInventory(p.getCrust()) && inventory.checkToppingsInventory(p.getToppings())){
+            pizza.add(p);
+            totalAmount+=p.getPizzaPrice()+p.getToppings().getPrice();
+            return true;
+        }
+        throw new InventoryException();
+       
     }
 
     @Override
-    public boolean addSide(Sides s) {
-        side.add(s);
+    public boolean addSide(Sides s)throws InventoryException {
+       if(inventory.checkSidesInventory(s)){
+        side.add(s);  
         totalAmount+=s.getSidePrice();
         return true;
+
+       }
+       throw new InventoryException();
     }
 
     @Override
@@ -54,6 +63,8 @@ public class MyOrder implements Order {
 
     @Override
     public boolean removePizza(Pizza p){
+        inventory.revertCrustInventory(p.getCrust());
+        inventory.revertToppingsInventory(p.getToppings());
         pizza.remove(p);
         totalAmount-=p.getPizzaPrice();
         return true;

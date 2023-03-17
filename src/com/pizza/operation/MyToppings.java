@@ -2,9 +2,8 @@ package com.pizza.operation;
 import com.pizza.base.Toppings;;
 public class MyToppings implements Toppings{
 
-    int availableInventory=1;
     String toppingsName;
-
+    int price;
     @Override
     public void setToppingsName(String name){
         toppingsName=name;
@@ -12,16 +11,16 @@ public class MyToppings implements Toppings{
     @Override
     public String getToppingName() {
         return toppingsName;
-    }
+    };
 
-    @Override
-    public int getAvailableInventory() {
-        return availableInventory;
+    public void setPrice(int amt){
+        price=amt;
     }
+    public int getPrice(){
+        return price;
+    }
+    
 
-    @Override
-    public void setAvailableInventory(int cnt) {
-       availableInventory=cnt;
-    }
+
 
 }

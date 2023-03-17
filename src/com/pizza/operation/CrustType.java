@@ -2,9 +2,10 @@ package com.pizza.operation;
 import com.pizza.base.Crust;
 public class CrustType implements Crust{
 
-    public int availableInventory=1;
     public String crustName="default";
-
+    
+    
+    private CrustType(){}
    
     @Override
     public void setCrustName(String name){
@@ -16,13 +17,5 @@ public class CrustType implements Crust{
     }
 
 
-    public int getAvailableInventory() {
-        return availableInventory;
-    }
-
-
-    public void setAvailableInventory(int availableInventory) {
-        this.availableInventory = availableInventory;
-    }
 
 }
