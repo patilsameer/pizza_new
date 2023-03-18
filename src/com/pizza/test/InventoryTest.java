@@ -1,35 +1,57 @@
 package com.pizza.test;
 import org.junit.Test;
 
+import com.pizza.base.Crust;
 import com.pizza.base.Sides;
 import com.pizza.base.Toppings;
 import com.pizza.operation.CrustInventory;
 import com.pizza.operation.CrustType;
 import com.pizza.operation.MySide;
 import com.pizza.operation.MyToppings;
+import com.pizza.operation.SideInventory;
+
+import org.junit.Rule;
+
 
 import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
+
 public class InventoryTest {
-    
-     @Test
-    public void crustInventoryTest(){
-        CrustType c=new CrustType();
-        CrustInventory crustInventory=new CrustInventory();
-        crustInventory.setCrust(c);
+    private CrustInventory crustInventory;
+    private Crust crustType;
+    private SideInventory sideInventory;
+    private Sides mySide;
+    @Before
+     public void setUpforCrust(){
+        crustInventory=new CrustInventory();
+        crustType=new CrustType();
+        crustType.setCrustName("New Crust");
+        crustInventory.setCrust(crustType);
         crustInventory.setCount(10);
-         assertEquals(crustInventory.getCrust(),c);
-         assertEquals(crustInventory.getCount(), 10);
      }
     
-    // @Test
-    // public void toppingsTest(){
-    //     Toppings t=new MyToppings();
-            
-    //     assertEquals(t.getAvailableInventory(), 1);
-    // }
+    @Test
+    public void crustInventoryTest(){   
+        assertEquals(crustInventory.getCrust().getCrustName(), crustType.getCrustName());
+        assertEquals(crustInventory.getCrust(),crustType);
+        assertEquals(crustInventory.getCount(), 10);
+     }   
 
-    // public void sidesTest(){
-    //     Sides s=new MySide();
-    //     assertEquals(s.getAvailableInventory(), 1);
-    // }
+     @Before
+     public void setUpforSide(){
+        sideInventory=new SideInventory();
+        mySide=new MySide();
+        mySide.setSideName("nuggets");
+        mySide.setSidePrice(100);
+        sideInventory.setSide(mySide);
+        sideInventory.setCount(10);
+    }
+
+    @Test
+    public void sideInventoryTest(){
+        assertEquals(sideInventory.getSide().getSideName(), mySide.getSideName());
+        assertEquals(sideInventory.getCount(),10);
+        assertEquals(sideInventory.getSide().getSidePrice(), 100);
+    }
 }

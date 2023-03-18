@@ -12,8 +12,8 @@ public class MyOrder implements Order {
     ArrayList<Sides> side;
     boolean isConfirmed;
     Inventory inventory;
-    
     public MyOrder(){
+        inventory=Inventory.getInventory();
     }
     @Override
     public void verifyOrder() {
