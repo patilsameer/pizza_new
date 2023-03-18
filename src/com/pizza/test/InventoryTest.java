@@ -6,12 +6,15 @@ import com.pizza.base.Sides;
 import com.pizza.base.Toppings;
 import com.pizza.operation.CrustInventory;
 import com.pizza.operation.CrustType;
+import com.pizza.operation.Inventory;
 import com.pizza.operation.MySide;
 import com.pizza.operation.MyToppings;
 import com.pizza.operation.SideInventory;
 import com.pizza.operation.ToppingsInventory;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 
 import org.junit.Before;
 
@@ -22,7 +25,8 @@ public class InventoryTest {
     private Sides mySide;
     private Toppings myToppings;
     private ToppingsInventory toppingsInventory;
-
+    private Inventory inventory;
+   
     @Before
      public void setUpforCrust(){
         crustInventory=new CrustInventory();
@@ -30,6 +34,7 @@ public class InventoryTest {
         crustType.setCrustName("New Crust");
         crustInventory.setCrust(crustType);
         crustInventory.setCount(10);
+        //inventory.addCrustToInventory(crustInventory);
      }
     
     @Test
@@ -47,6 +52,7 @@ public class InventoryTest {
         mySide.setSidePrice(100);
         sideInventory.setSide(mySide);
         sideInventory.setCount(10);
+        //inventory.addSideToInventory(sideInventory);
     }
 
     @Test
@@ -66,6 +72,7 @@ public class InventoryTest {
         myToppings.setPrice(100);
         toppingsInventory.setToppings(myToppings);
         toppingsInventory.setCoutn(10);
+        //inventory.addToppingsToInventory(toppingsInventory);
     }
 
     @Test
@@ -74,4 +81,16 @@ public class InventoryTest {
         assertEquals(toppingsInventory.getCount(),10);
         assertEquals(toppingsInventory.getToppings().getPrice(),myToppings.getPrice());
     }
+
+    //@Before
+    //  public void setInventory()
+    //  {
+    //     inventory=Inventory.getInventory();
+    //  }
+
+     @Test
+     public void inventoryTest(){
+        inventory=Inventory.getInventory();
+        assertNotEquals(inventory, null);
+     }
 }

@@ -26,7 +26,7 @@ public class Inventory  {
 
     public static Inventory getInventory(){
 
-            if(inventory.equals(null)){
+            if(inventory==null){
                 inventory=new Inventory();
             }
             return inventory;

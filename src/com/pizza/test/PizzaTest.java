@@ -1,6 +1,5 @@
 package com.pizza.test;
 
-import java.beans.BeanProperty;
 
 import org.junit.Before;
 import org.junit.Test;
