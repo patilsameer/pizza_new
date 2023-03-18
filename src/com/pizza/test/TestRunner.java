@@ -9,5 +9,9 @@ public class TestRunner {
         System.out.println(result.wasSuccessful());
         Result result1=JUnitCore.runClasses(PizzaTest.class);
         System.out.println(result1.wasSuccessful());
+
+        Result result2=JUnitCore.runClasses(MyOrderTest.class);
+        System.out.println(result2.wasSuccessful());
+    
      }
 }

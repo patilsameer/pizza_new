@@ -24,6 +24,18 @@ public class Inventory  {
         
     }
 
+    public SideInventory getSideInventory(int index){
+        return sideInventoryList.get(index);
+    }
+
+    public CrustInventory getCrustInventory(int index){
+        return crustInventoryList.get(index);
+    }
+
+    public ToppingsInventory getToppingInventory(int index)
+    {
+        return toppingInventoryList.get(index);
+    }
     public static Inventory getInventory(){
 
             if(inventory==null){
@@ -48,7 +60,7 @@ public class Inventory  {
         for(CrustInventory c:crustInventoryList){
             if(c.getCrust().equals(crust)){
                 int i= crustInventoryList.indexOf(c);
-                if(crustInventoryList.get(i).count>1){
+                if(crustInventoryList.get(i).count>0){
                     crustInventoryList.get(i).count--;
                     return true;
                 }
@@ -72,7 +84,7 @@ public class Inventory  {
         for(ToppingsInventory c:toppingInventoryList){
             if(c.getToppings().equals(topping)){
                 int i= toppingInventoryList.indexOf(c);
-                if(toppingInventoryList.get(i).count>1){
+                if(toppingInventoryList.get(i).count>0){
                     toppingInventoryList.get(i).count--;
                     return true;
                 }
@@ -98,7 +110,7 @@ public class Inventory  {
         for(SideInventory c:sideInventoryList){
             if(c.getSide().equals(side)){
                 int i= sideInventoryList.indexOf(c);
-                if(sideInventoryList.get(i).count>1){
+                if(sideInventoryList.get(i).count>0){
                     sideInventoryList.get(i).count--;
                     return true;
                 }

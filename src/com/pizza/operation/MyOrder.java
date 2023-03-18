@@ -15,6 +15,11 @@ public class MyOrder implements Order {
     public MyOrder(){
         inventory=Inventory.getInventory();
     }
+
+    public int getAmount(){
+        return totalAmount;
+    }
+
     @Override
     public void verifyOrder() {
         for (Pizza pizza : pizza) {
@@ -24,6 +29,10 @@ public class MyOrder implements Order {
             System.out.println(side.toString());
         }
         System.out.println("Total Amount="+totalAmount);
+    }
+
+    public boolean isConfiremd(){
+        return isConfirmed;
     }
 
     @Override
