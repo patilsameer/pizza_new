@@ -33,9 +33,8 @@ public class MyOrderTest {
     private MyOrder myorder;
     private Pizza pizza;
 
-
-    @Test
-    public void myOrderTest()throws InventoryException{
+    @Before
+    public void setup(){
         inventory=Inventory.getInventory();
 
         crustInventory=new CrustInventory();
@@ -44,8 +43,6 @@ public class MyOrderTest {
         crustInventory.setCrust(crustType);
         crustInventory.setCount(10);
         inventory.addCrustToInventory(crustInventory);
-        assertEquals(inventory.getCrustInventory(1).getCrust().getCrustName(), "Crust1");
-
 
         crustInventory=new CrustInventory();
         crustType=new CrustType();
@@ -53,7 +50,12 @@ public class MyOrderTest {
         crustInventory.setCrust(crustType);
         crustInventory.setCount(10);
         inventory.addCrustToInventory(crustInventory);
-   
+    }
+
+    @Test
+    public void myOrderTest()throws InventoryException{
+        
+        assertEquals(inventory.getCrustInventory(1).getCrust().getCrustName(), "Crust1");
         assertEquals(inventory.getCrustInventory(2).getCrust().getCrustName(), "Crust2");
     }
 }
