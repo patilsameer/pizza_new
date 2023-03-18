@@ -9,6 +9,7 @@ import com.pizza.operation.CrustType;
 import com.pizza.operation.MySide;
 import com.pizza.operation.MyToppings;
 import com.pizza.operation.SideInventory;
+import com.pizza.operation.ToppingsInventory;
 
 import org.junit.Rule;
 
@@ -22,6 +23,9 @@ public class InventoryTest {
     private Crust crustType;
     private SideInventory sideInventory;
     private Sides mySide;
+    private Toppings myToppings;
+    private ToppingsInventory toppingsInventory;
+
     @Before
      public void setUpforCrust(){
         crustInventory=new CrustInventory();
@@ -53,5 +57,24 @@ public class InventoryTest {
         assertEquals(sideInventory.getSide().getSideName(), mySide.getSideName());
         assertEquals(sideInventory.getCount(),10);
         assertEquals(sideInventory.getSide().getSidePrice(), 100);
+        assertEquals(sideInventory.getSide().getSidePrice(), mySide.getSidePrice());
+    }
+
+
+    @Before
+    public void setUpforToppings(){
+        toppingsInventory=new ToppingsInventory();
+        myToppings=new MyToppings();
+        myToppings.setToppingsName("Extra Chees");
+        myToppings.setPrice(100);
+        toppingsInventory.setToppings(myToppings);
+        toppingsInventory.setCoutn(10);
+    }
+
+    @Test
+    public void toppingInventoryTest(){
+        assertEquals(toppingsInventory.getToppings().getToppingName(), myToppings.getToppingName());
+        assertEquals(toppingsInventory.getCount(),10);
+        assertEquals(toppingsInventory.getToppings().getPrice(),myToppings.getPrice());
     }
 }
