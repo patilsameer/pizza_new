@@ -50,12 +50,50 @@ public class MyOrderTest {
         crustInventory.setCrust(crustType);
         crustInventory.setCount(10);
         inventory.addCrustToInventory(crustInventory);
+
+        sideInventory=new SideInventory();
+        mySide=new MySide();
+        mySide.setSideName("Side1");
+        mySide.setSidePrice(100);
+        sideInventory.setSide(mySide);
+        sideInventory.setCount(10);
+        inventory.addSideToInventory(sideInventory);
+
+        sideInventory=new SideInventory();
+        mySide=new MySide();
+        mySide.setSideName("Side2");
+        mySide.setSidePrice(200);
+        sideInventory.setSide(mySide);
+        sideInventory.setCount(2);
+        inventory.addSideToInventory(sideInventory);
+
+        toppingsInventory=new ToppingsInventory();
+        myToppings=new MyToppings();
+        myToppings.setToppingsName("Topping1");
+        myToppings.setPrice(100);
+        toppingsInventory.setToppings(myToppings);
+        toppingsInventory.setCoutn(10);
+        inventory.addToppingsToInventory(toppingsInventory);
+
+        toppingsInventory=new ToppingsInventory();
+        myToppings=new MyToppings();
+        myToppings.setToppingsName("Topping2");
+        myToppings.setPrice(100);
+        toppingsInventory.setToppings(myToppings);
+        toppingsInventory.setCoutn(10);
+        inventory.addToppingsToInventory(toppingsInventory);
+
     }
 
     @Test
-    public void myOrderTest()throws InventoryException{
-        
+    public void myInventorySetupTest()throws InventoryException{      
         assertEquals(inventory.getCrustInventory(1).getCrust().getCrustName(), "Crust1");
         assertEquals(inventory.getCrustInventory(2).getCrust().getCrustName(), "Crust2");
+    
+        assertEquals(inventory.getSideInventory(1).getSide().getSideName(),"Side1");
+        assertEquals(inventory.getSideInventory(2).getSide().getSideName(),"Side2");
+    
+        assertEquals(inventory.getToppingInventory(1).getToppings().getToppingName(),"Topping1");
+        assertEquals(inventory.getToppingInventory(2).getToppings().getToppingName(),"Topping2");
     }
 }
