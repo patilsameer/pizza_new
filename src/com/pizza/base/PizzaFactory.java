@@ -1,6 +1,5 @@
 package com.pizza.base;
 
-import java.util.ArrayList;
 
 public interface PizzaFactory{
      Pizza createPizza();

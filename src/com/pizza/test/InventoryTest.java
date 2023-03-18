@@ -11,9 +11,6 @@ import com.pizza.operation.MyToppings;
 import com.pizza.operation.SideInventory;
 import com.pizza.operation.ToppingsInventory;
 
-import org.junit.Rule;
-
-
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
