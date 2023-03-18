@@ -1,6 +1,5 @@
 package com.pizza.test;
 import org.junit.Test;
-
 import com.pizza.base.Crust;
 import com.pizza.base.Sides;
 import com.pizza.base.Toppings;
@@ -11,9 +10,7 @@ import com.pizza.operation.MySide;
 import com.pizza.operation.MyToppings;
 import com.pizza.operation.SideInventory;
 import com.pizza.operation.ToppingsInventory;
-
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 
 import org.junit.Before;
@@ -92,5 +89,12 @@ public class InventoryTest {
      public void inventoryTest(){
         inventory=Inventory.getInventory();
         assertNotEquals(inventory, null);
+        inventory.addCrustToInventory(crustInventory);
+        inventory.addSideToInventory(sideInventory);
+        inventory.addToppingsToInventory(toppingsInventory);
+
+        assertEquals(inventory.checkCrustInventory(crustType),true);
+        assertEquals(inventory.checkSidesInventory(mySide),true);
+        assertEquals(inventory.checkToppingsInventory(myToppings), true);
      }
 }

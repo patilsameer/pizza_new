@@ -3,7 +3,6 @@ package com.pizza.test;
 
 import org.junit.Before;
 import org.junit.Test;
-
 import com.pizza.base.Crust;
 import com.pizza.base.Pizza;
 import com.pizza.base.Toppings;
@@ -11,7 +10,6 @@ import com.pizza.operation.CrustType;
 import com.pizza.operation.InventoryException;
 import com.pizza.operation.MyToppings;
 import com.pizza.operation.PizzaClass;
-
 import static org.junit.Assert.assertEquals;
 
 public class PizzaTest {
