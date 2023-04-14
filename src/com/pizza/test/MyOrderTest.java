@@ -32,6 +32,7 @@ public class MyOrderTest {
     private Inventory inventory;//=Inventory.getInventory();
     private MyOrder myorder;
     private Pizza pizza;
+    private Pizza pizza2;
 
     @Before
     public void setup(){
@@ -105,6 +106,11 @@ public class MyOrderTest {
         pizza.setPizzaName("MyPizza");
         pizza.setPizzaPrice(200);
         pizza.setSize(1);
+
+        pizza2=new PizzaClass();
+        pizza2.setPizzaName("MyPizza2");
+        pizza2.setPizzaPrice(300);
+        pizza2.setSize(1);
        // mySide=inventory.getSideInventory(1).getSide();
         
 
@@ -116,13 +122,26 @@ public class MyOrderTest {
         //assertEquals(pizza.getToppingName(), "Topping1");
         //assertEquals(myorder.addSide(mySide), true);
         assertEquals(myorder.addSide(inventory.getSideInventory(1).getSide()), true);
+        assertEquals(myorder.addSide(inventory.getSideInventory(2).getSide()), true);
+
+
         assertEquals(pizza.setToppings(inventory.getToppingInventory(1).getToppings()),true);
         assertEquals(pizza.setCrust(inventory.getCrustInventory(1).getCrust()), true);
         assertEquals(pizza.getCrustName(), "Crust1");
         assertEquals(pizza.getToppingName(),"Topping1");
         assertEquals(myorder.addPizza(pizza),true);
         assertEquals(pizza.getPizzaPrice(),300);
-        assertEquals(myorder.getAmount(),600);
+
+
+        assertEquals(pizza2.setToppings(inventory.getToppingInventory(2).getToppings()),true);
+        assertEquals(pizza2.setCrust(inventory.getCrustInventory(2).getCrust()), true);
+        assertEquals(pizza2.getCrustName(), "Crust2");
+       assertEquals(pizza2.getToppingName(),"Topping2");
+       assertEquals(myorder.addPizza(pizza2),true);
+       assertEquals(pizza2.getPizzaPrice(),400);
+       
+       
+       assertEquals(myorder.getAmount(),1200);
 
     }
 
