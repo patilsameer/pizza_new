@@ -3,12 +3,12 @@ package com.pizza.base;
 import com.pizza.operation.InventoryException;
 
 public interface Pizza{
-    void setCrust(Crust c)throws InventoryException;
+    boolean setCrust(Crust c)throws InventoryException;
     String getCrustName() throws InventoryException;
     Crust getCrust();
 
     Toppings getToppings();
-    void setToppings(Toppings t);
+    boolean setToppings(Toppings t);
     String getToppingName();
 
     void setSize(int userSelectedSize);// 1=small  2=medium 3=large

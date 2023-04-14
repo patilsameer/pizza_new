@@ -5,8 +5,8 @@ public class PizzaClass implements Pizza {
     int pizzaSize=1; // size 1 = small pizz 2 =medium pizza 3 =large pizza
     int price=1;
     String pizzaName=null;
-    Crust crustType;
-    Toppings myToppings;
+    Crust crustType=null;
+    Toppings myToppings=null;
     public void setPizzaName(String name){
         this.pizzaName=name;
     }
@@ -20,8 +20,9 @@ public class PizzaClass implements Pizza {
     }
 
     @Override
-    public void setCrust(Crust c){
+    public boolean setCrust(Crust c){
         crustType =c;
+        return true;
     }
     @Override
     public String getCrustName(){
@@ -60,9 +61,10 @@ public class PizzaClass implements Pizza {
     }
 
     @Override
-    public void setToppings(Toppings t) {
+    public boolean setToppings(Toppings t) {
         myToppings=t;
         price+=t.getPrice();
+        return true;
     }
 
     @Override

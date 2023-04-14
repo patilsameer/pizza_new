@@ -9,4 +9,5 @@ public interface Order{
     boolean removeSide(Sides s);
     boolean removePizza(Pizza p);
     boolean confirmOrder();
+    Pizza getPizza(int index);
 }

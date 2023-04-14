@@ -54,7 +54,7 @@ public class MyOrderTest {
         sideInventory=new SideInventory();
         mySide=new MySide();
         mySide.setSideName("Side1");
-        mySide.setSidePrice(100);
+        mySide.setSidePrice(300);
         sideInventory.setSide(mySide);
         sideInventory.setCount(10);
         inventory.addSideToInventory(sideInventory);
@@ -96,4 +96,34 @@ public class MyOrderTest {
         assertEquals(inventory.getToppingInventory(1).getToppings().getToppingName(),"Topping1");
         assertEquals(inventory.getToppingInventory(2).getToppings().getToppingName(),"Topping2");
     }
+
+    @Before
+    public void myOrderSetup()throws InventoryException{
+       // myorder =new MyOrder(inventory);
+        myorder=new MyOrder();
+        pizza = new PizzaClass();
+        pizza.setPizzaName("MyPizza");
+        pizza.setPizzaPrice(200);
+        pizza.setSize(1);
+       // mySide=inventory.getSideInventory(1).getSide();
+        
+
+       //boolean result= pizza.setToppings(inventory.getToppingInventory(1).getToppings());
+      // pizza.setToppings(inventory.getToppingInventory(1).getToppings());
+    }
+    @Test
+    public void myOrderTest()throws InventoryException{
+        //assertEquals(pizza.getToppingName(), "Topping1");
+        //assertEquals(myorder.addSide(mySide), true);
+        assertEquals(myorder.addSide(inventory.getSideInventory(1).getSide()), true);
+        assertEquals(pizza.setToppings(inventory.getToppingInventory(1).getToppings()),true);
+        assertEquals(pizza.setCrust(inventory.getCrustInventory(1).getCrust()), true);
+        assertEquals(pizza.getCrustName(), "Crust1");
+        assertEquals(pizza.getToppingName(),"Topping1");
+        assertEquals(myorder.addPizza(pizza),true);
+        assertEquals(pizza.getPizzaPrice(),300);
+        assertEquals(myorder.getAmount(),600);
+
+    }
+
 }

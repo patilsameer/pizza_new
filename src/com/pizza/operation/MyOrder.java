@@ -2,6 +2,8 @@ package com.pizza.operation;
 
 import java.util.ArrayList;
 
+import javax.management.relation.RoleList;
+
 import com.pizza.base.Order;
 import com.pizza.base.Pizza;
 import com.pizza.base.Sides;
@@ -14,10 +16,17 @@ public class MyOrder implements Order {
     Inventory inventory;
     public MyOrder(){
         inventory=Inventory.getInventory();
+        pizza =new ArrayList<>();
+        side=new ArrayList<>();
+        this.inventory=Inventory.getInventory();
     }
 
+    public MyOrder(Inventory inventory){
+        this.inventory=inventory;
+    }
     public int getAmount(){
         return totalAmount;
+        //return 100;
     }
 
     @Override
@@ -43,24 +52,28 @@ public class MyOrder implements Order {
 
     @Override
     public boolean addPizza(Pizza p) throws InventoryException{
-        if(inventory.checkCrustInventory(p.getCrust()) && inventory.checkToppingsInventory(p.getToppings())){
-            pizza.add(p);
-            totalAmount+=p.getPizzaPrice()+p.getToppings().getPrice();
-            return true;
-        }
-        throw new InventoryException();
-       
+            
+                 pizza.add(p);
+                 totalAmount+=p.getPizzaPrice();
+                //  if(p.getToppings()!=null){
+                //     totalAmount+=p.getToppings().getPrice();
+                //  }
+
+                 return true;
     }
 
     @Override
-    public boolean addSide(Sides s)throws InventoryException {
-       if(inventory.checkSidesInventory(s)){
-        side.add(s);  
+    public Pizza getPizza(int index)
+    {
+        Pizza p=pizza.get(index);
+        return p;
+    }
+
+    @Override
+    public boolean addSide(Sides s) {
+        side.add(s);
         totalAmount+=s.getSidePrice();
         return true;
-
-       }
-       throw new InventoryException();
     }
 
     @Override
